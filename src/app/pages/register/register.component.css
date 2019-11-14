@@ -1,0 +1,82 @@
+
+/* ----------------------------------------- */
+/* --------------- REGISTRO ---------------- */
+/* ----------------------------------------- */
+
+.input-register{ border: none; border-block-end: 1px rgba(0, 0, 0, 0.1) solid; background-color:#cec7c700;  }
+
+.register-content{ width: 60%; border-radius: 10px; background-color: #ffffffba; }
+
+div.form-group>h1{ font-size:36px; }
+
+.content-name { width: 100% }
+
+.content-name > div { width: 50%}
+
+.content-name > div:first-child { margin-right:30px }
+
+.content-email > div:first-child { width:45% }
+
+.content-email > div { width:30% }
+
+#dataLDC > div:only-child > div { width: 50% }
+
+#dataLDC > div:only-child > div:first-child { margin-right:30px }
+
+.btn-register{
+    border: 1px rgba(0, 0, 0, 0.1) solid;
+    background-color: #cec7c700;
+    color: #000000;
+    margin: 0 10px 0 10px;
+}
+.register-a{ text-decoration: none; color: #000000; }
+
+.register-a:hover{ text-decoration: none; color: #fff; }
+
+.btn-register:hover{
+    border: 1px #d0a727 solid;
+    background-color: #000000;
+    color: #fff;
+    margin: 0 10px 0 10px;
+}
+
+@media (max-width: 600px){
+
+    /* header > div { display: none;} */
+
+    .register-content{
+        width: 95%;
+        height: 95%;
+    }
+
+    div.form-group>h1{ font-size:30px; }
+
+    .content-name { flex-wrap: wrap; }
+
+    .content-name > div { width: 100%}
+
+    .content-name > div:first-child { margin-right: 0;  margin-bottom: 10px; }
+
+    .content-email { flex-wrap: wrap;}
+
+    .content-email > div:first-child { width:70% }
+
+    .content-email > div { width:30% }
+
+    .content-email > div:last-child { width:100% }
+
+    #dataLDC > div:only-child  { flex-wrap: wrap; }
+
+    #dataLDC > div:only-child > div:first-child { margin-right:0px }
+
+    #dataLDC > div:only-child > div { width: 100% }
+
+    .btn-register{
+        width: 40%;
+        border: 1px #d0a727 solid;
+        background-color: #000000;
+        color: #fff;
+        margin: 0 10px 0 10px;
+    }
+
+ }

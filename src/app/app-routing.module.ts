@@ -5,11 +5,19 @@ import { SidenavModule } from './components/sidenav/sidenav.module';
 import { ProjectsComponent } from './pages/projects/projects.component';
 
 
-const routes: Routes = [{
+const routes: Routes = [
+{
   path: '',
   loadChildren: () =>
     import('./pages/login/login.module').then(
       m => m.LoginModule
+    )
+},
+{
+  path: 'register',
+  loadChildren: () =>
+    import('./pages/register/register.module').then(
+      m => m.RegisterModule
     )
 },
 {path: 'sidenav', component: SidenavComponent, children: [
@@ -25,6 +33,13 @@ const routes: Routes = [{
     loadChildren: () =>
       import('./pages/projects/projects.module').then(
         m=>m.ProjectsModule
+      )
+   },
+   {
+    path: 'register',
+    loadChildren: () =>
+      import('./pages/register/register.module').then(
+        m=>m.RegisterModule
       )
    }
 ]
