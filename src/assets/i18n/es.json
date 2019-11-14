@@ -1,0 +1,27 @@
+{
+
+    "Title" : "Inicio de Sesión",
+    "Title_Acount" : "Kantar Operations Latam",
+    "Btn-Login" : "Iniciar Sesión",
+    "User-Login" : "Usuario",
+    "Pass-Login" : "Contraseña",
+    "Forgot_Pass" : "¿Olvidó Su Contraseña?",
+    "Create_Acc" : "Crear Cuenta",
+    "remember_pass" : "Recordar Contraseña",
+    "Forgot-Email" : "Correo Electronico",
+    "Forgot-Btn" : "Enviar",
+    "title" : "Registro",
+    "Name" : "Nombre",
+    "Firs_Name" : "Nombre",
+    "Last_Name" : "Apellido",
+    "Email" : "Correo",
+    "Email_Input" : "Correo",
+    "Email_Example" : "@Ejemplo.com",
+    "Pass" : "Contraseña",
+    "Pass_Register" : "Contraseña",
+    "Pass_RegisterC" : "Confirme Su Contraseña",
+    "btn-register" : "Enviar",
+    "btn-Cancel" : "Cancelar",
+    "Select-register" : "Seleccione..."
+   
+}

@@ -1,0 +1,92 @@
+<!-- HEADER
+------------------>
+<header class="w-100 d-flex position-absolute">
+  <div class="w-50 logo-header">
+      <img src="../../../assets/images/KANTAR_logo.png" alt="Kantar" class="float-left logo-kantar">
+  </div>
+
+  <!-- LANG
+  ---------------- -->
+
+  <div class="w-50 lang-header">
+      <div class="d-flex float-right">
+          <button style="background:url(../../../assets/images/lang-spain.png) " class="btn-lang" alt="Kantar" (click)="language('es')"></button>
+          <button style="background:url(../../../assets/images/lang-uk.png)" class="btn-lang" alt="Kantar"(click)="language('en')"></button>
+
+      </div>
+  </div>
+</header>
+<!-- CONTAINER
+------------------>
+<section class="d-flex justify-content-center align-items-center vh-100 w-100 text-white bg-page">
+
+      <div class="content-form-login">
+          <!-- FORM
+          ------------------>
+          <form method="POST" onsubmit="return ValidateLogin()">
+
+              <div class="form-group text-center">
+                  <b>{{ "Title_Acount" | translate }}</b>
+              </div>
+              <!-- LOGIN -->
+              <div class="form-group">
+                  <input type="text" class="form-control input-Login" name="UserLogin" (ngModel)="UserLogin" id="UserLogin" placeholder="{{ 'User-Login' | translate }}">
+              </div>
+
+              <!-- PASSWORD -->
+              <div class="form-group input-group">
+                  <input type="password" class="form-control input-Login" name="PasswordLogin" (ngModel)="password" id="PasswordLogin" placeholder="{{ 'Pass-Login' | translate }}" style="border-right:none">
+                  <div class="input-group-append">
+                      <span class="input-group-text eye-pass" id="viewPass"  (click)="enable_pass();"><i class="fas fa-eye"></i></span>
+                  </div>
+              </div>
+
+              <div class="w-100" style="margin-buttom:20px;">
+                  <a href="#" class="text-white float-right" style="margin-top: -10px; margin-bottom: 25px;" data-toggle="modal" data-target="#myModal">{{ "Forgot_Pass" | translate }}</a>
+              </div>
+
+              <div class="footer-form-login">
+                  <div class="text-center">
+                      <a routerLink="/registrar" class="text-white">{{ "Create_Acc" | translate }}</a>
+                  </div>
+                  <div class="line"></div>
+                  <div>
+                      <button  routerLink="/projects" (click)="login(UserLogin,password)" class="btn-login form-control">{{ "Btn-Login" | translate }}</button>
+                  </div>
+              </div>
+
+          </form>
+      </div>
+
+<!-- MODAL FORGOT PASS
+  -------------------------->
+
+  <div class="modal" id="myModal">
+          <div class="modal-dialog">
+              <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header text-dark">
+                      <h4 class="modal-title">{{ "remember_pass" | translate }} </h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                      <div class="input-group mb-3 modal-alert">
+                          <div class="input-group-prepend ">
+                              <span class="input-group-text bg-kantar" id="email-forgot"><i class="fas fa-envelope"></i></span>
+                          </div>
+                          <input type="text" class="form-control" name="emailForgot" id="emailForgot" placeholder="{{ 'Forgot-Email' | translate }}">
+                      </div>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-danger btn-Kantar" id="btn-modal">{{ "Forgot-Btn" | translate}}</button>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </section>
