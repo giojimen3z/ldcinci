@@ -40,14 +40,20 @@ language(tipo:String) {
 
     // BTN PASSWORD HIDE/SHOW PASSWORD
 // ------------------>
+icono:string = "visibility";
 
- enable_pass(){
-    if($("#PasswordLogin").attr("type") == "password"){
-        $("#PasswordLogin").attr("type","text");
-    }else{
-        $("#PasswordLogin").attr("type","password");
-    }
+enable_pass(){
+ 
+
+ if($("#PasswordLogin").attr("type") == "password"){
+
+       this.icono = "visibility_off";
+       $("#PasswordLogin").attr("type","text");
+   }else{
+       this.icono = "visibility";  
+       $("#PasswordLogin").attr("type","password");
+   }
+
 }
-
 
 }
