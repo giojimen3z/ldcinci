@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import {MatCardModule} from '@angular/material/card';
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from '../register/register.component';
 
@@ -8,6 +9,7 @@ import { RegisterComponent } from '../register/register.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { MatSidenavModule, MatButtonModule, MatMenuModule, MatIconModule, MatInputModule, MatToolbarModule, MatListModule, MatTableModule, MatPaginatorModule } from '@angular/material';
 export function HttpLoaderFactory(http: HttpClient){
 
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -20,6 +22,17 @@ export function HttpLoaderFactory(http: HttpClient){
     CommonModule,
     RegisterRoutingModule,
     HttpClientModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
     TranslateModule.forRoot({
 
       loader: {
