@@ -25,21 +25,21 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./pages/projects/projects.module').then(
-        m=>m.ProjectsModule
+        m => m.ProjectsModule
       )
    },
     {
     path: 'projects',
     loadChildren: () =>
       import('./pages/projects/projects.module').then(
-        m=>m.ProjectsModule
+        m => m.ProjectsModule
       )
    },
    {
     path: 'register',
     loadChildren: () =>
       import('./pages/register/register.module').then(
-        m=>m.RegisterModule
+        m => m.RegisterModule
       )
    }
 ]
