@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProjectsRoutingModule } from './projects-routing.module';
-import { ProjectsComponent } from './projects.component';
-import { MatSidenavModule, MatButtonModule, MatMenuModule, MatIconModule, MatCardModule } from '@angular/material';
-import { MatInputModule, MatToolbarModule, MatListModule, MatPaginatorModule } from '@angular/material';
-import {MatTableModule} from '@angular/material/table';
+import { ScriptincidenceRoutingModule } from './scriptincidence-routing.module';
+import { ScriptincidenceComponent } from './scriptincidence.component';
+import {  MatIconModule, MatCardModule,  MatToolbarModule, MatPaginatorModule } from '@angular/material';
 /* Translate */
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -15,11 +13,12 @@ export function HttpLoaderFactory(http: HttpClient){
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
 }
+
 @NgModule({
-  declarations: [ProjectsComponent],
+  declarations: [ScriptincidenceComponent],
   imports: [
     CommonModule,
-    ProjectsRoutingModule,
+    ScriptincidenceRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
 
@@ -29,17 +28,11 @@ export function HttpLoaderFactory(http: HttpClient){
         deps:[HttpClient]
       }
     }),
-    MatSidenavModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatIconModule,
     MatCardModule,
-    MatSidenavModule,
-    MatInputModule,
+    MatIconModule,
     MatToolbarModule,
-    MatListModule,
-    MatTableModule,
     MatPaginatorModule,
+
   ]
 })
-export class ProjectsModule { }
+export class ScriptincidenceModule { }

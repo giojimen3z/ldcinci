@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ScriptIncidenceComponent } from './script-incidence.component';
+
+const routes: Routes = [{path: '', component: ScriptIncidenceComponent}];
 
 
-const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -41,6 +41,20 @@ const routes: Routes = [
       import('./pages/register/register.module').then(
         m => m.RegisterModule
       )
+   },
+   {
+    path: 'cost',
+    loadChildren: () =>
+      import('./pages/cost/cost.module').then(
+        m => m.CostModule
+      )
+   },
+   {
+    path: 'ScriptIncidence',
+    loadChildren: () =>
+      import('./pages/scriptincidence/scriptincidence.module').then(
+        m => m.ScriptincidenceModule
+      )
    }
 ]
 }

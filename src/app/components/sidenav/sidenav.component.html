@@ -23,21 +23,67 @@
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list>
+        <mat-nav-list>
+          <mat-accordion>
+            <!-- OPCIONES USUARIO -->
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      <mat-icon class="icono">person</mat-icon>
+                      Profile
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                  <!-- INFORMACIÓN -->
+                  <a mat-list-item [routerLink]="['cost']">
+                    <mat-icon class="icono">edit</mat-icon>
+                    Update Infor
+                  </a>
+                  <!-- EQUIPO -->
+                  <a mat-list-item [routerLink]="['register']">
+                      <mat-icon class="icono">people_alt</mat-icon>
+                      Team
+                    </a>
+                  <!-- CONFIGURACION -->
+                  <a mat-list-item [routerLink]="['']">
+                    <mat-icon class="icono">settings_applications</mat-icon>
+                    Confi
+                  </a>
+              </mat-expansion-panel>
+              <!-- OPCIONES PROYECTO -->
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      <mat-icon class="icono">collections_bookmark</mat-icon>Projects
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                  <!-- LISTA DE PROYECTOS -->
+                  <a mat-list-item [routerLink]="['projects']">
+                    <mat-icon class="icono">library_books</mat-icon>
+                    My Projects
+                  </a>
+                  <!-- CREAR PROYECTO -->
+                  <a mat-list-item [routerLink]="['ScriptIncidence']">
+                    <mat-icon class="icono">library_add</mat-icon>
+                    New Project
+                  </a>
+                  <!-- REPORTES -->
+                  <a mat-list-item [routerLink]="['']">
+                    <mat-icon class="icono">insert_chart_outlined</mat-icon>
+                    Report
+                  </a>
+              </mat-expansion-panel>
+            </mat-accordion>
+            <!-- CERRAR SESION -->
+            <a mat-list-item [routerLink]="['']">
+                <mat-icon class="icono">no_meeting_room</mat-icon>
+                Close
+              </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
 
-              <a mat-list-item [routerLink]="['projects']">
-                  <mat-icon class="icono">card_membership</mat-icon>
-                projects</a>
-                <a mat-list-item [routerLink]="['register']">
-                  <mat-icon class="icono">card_membership</mat-icon>
-                registrar</a>
-            </mat-nav-list>
-          </mat-sidenav>
-
-          <mat-sidenav-content>
-            <router-outlet></router-outlet>
-          </mat-sidenav-content>
-        </mat-sidenav-container>
-      </div>
-
-      <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>

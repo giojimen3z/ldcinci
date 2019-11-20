@@ -1,3 +1,15 @@
+.container-cost{
+  width: 95%;
+  border: 1px #888888 solid;
+  margin-top: 20px;
+  box-shadow: 0px 2px 5px 0px #888888;
+}
+
+.search-input{
+  position: absolute;
+  right: 15px;
+}
+
 table {
   width: 100%;
 }
@@ -9,4 +21,10 @@ table {
 
 td, th {
   width: 25%;
+}
+
+tr:hover{
+  background-color: #e4e0e078;
+  border-block-end: 2px #d0a727 solid;
+  border-top: 2px #d0a727 solid;
 }

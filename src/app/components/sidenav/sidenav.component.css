@@ -58,6 +58,12 @@ h1.example-app-name {
   flex: 1 0 auto;
 }
 
+a:hover {
+  background-color: white;
+  color: #000;
+  border-left: 5px #d0a727 solid;
+}
+
 .icono{
     margin-right: 10px;
     color: #d0a727;
@@ -67,3 +73,5 @@ h1.example-app-name {
   background: black !important;
   color: white;
 }
+
+
