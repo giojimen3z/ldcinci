@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-
+import { AuthService } from './../../Service/auth.service';
 
 
 declare var $: any;
@@ -11,22 +11,26 @@ declare var $: any;
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent  {
-
-  UserLogin: string;
+export class LoginComponent  implements OnInit {
+  //
+  Email: string;
   password: string;
-  constructor (public translate: TranslateService, private router: Router) {
+
+  constructor(public translate: TranslateService, private router: Router, private userService: AuthService ) {
 
     this.translate.addLangs(['en','es']);
     this.translate.setDefaultLang('en');
-  }
-  public login(UserLogin: string, password: string) {
-      this.router.navigate(['sidenav'], { replaceUrl: true });
+    //this.userService.obtenerUsuario().subscribe((user)=>{console.log(user)})
   }
 
-  // CHANGE  language
-//------->
-language(tipo:String) {
+ngOnInit(){
+
+  this.userService.obtenerUsuario().subscribe((user)=>{console.log(user)})
+}
+
+// CHANGE  language
+// ------->
+language(tipo: String) {
 
 
   if (tipo == 'es'){
@@ -38,19 +42,19 @@ language(tipo:String) {
 }
 
 
-    // BTN PASSWORD HIDE/SHOW PASSWORD
+// BTN PASSWORD HIDE/SHOW PASSWORD
 // ------------------>
-icono:string = "visibility";
+icono: string = "visibility";
 
 enable_pass(){
- 
+
 
  if($("#PasswordLogin").attr("type") == "password"){
 
        this.icono = "visibility_off";
        $("#PasswordLogin").attr("type","text");
    }else{
-       this.icono = "visibility";  
+       this.icono = "visibility";
        $("#PasswordLogin").attr("type","password");
    }
 

@@ -20,22 +20,22 @@
 ------------------>
 <section class="d-flex justify-content-center align-items-center vh-100 w-100 text-white bg-page">
 
-      <div class="content-form-login">
+      <div class="content-form-login" >
           <!-- FORM
           ------------------>
-          <form method="POST" onsubmit="return ValidateLogin()">
+          <!-- <form method="POST"> -->
 
               <div class="form-group text-center">
                   <b>{{ "Title_Acount" | translate }}</b>
               </div>
               <!-- LOGIN -->
               <div class="form-group">
-                  <input type="text" class="form-control input-Login" name="UserLogin" (ngModel)="UserLogin" id="UserLogin" placeholder="{{ 'User-Login' | translate }}">
+                  <input type="text" class="form-control input-Login" name="UserLogin" [(ngModel)]="Email" id="UserLogin" placeholder="{{ 'User-Login' | translate }}">
               </div>
 
               <!-- PASSWORD -->
               <div class="form-group input-group">
-                  <input type="password" class="form-control input-Login" name="PasswordLogin" (ngModel)="password" id="PasswordLogin" placeholder="{{ 'Pass-Login' | translate }}" style="border-right:none">
+                  <input type="password" class="form-control input-Login" name="PasswordLogin" [(ngModel)]="password" id="PasswordLogin" placeholder="{{ 'Pass-Login' | translate }}" style="border-right:none">
                   <div class="input-group-append">
                       <span class="input-group-text eye-pass" id="viewPass"  (click)="enable_pass();"> <i class="material-icons"> {{icono}}  </i> </span>
                   </div>
@@ -51,11 +51,11 @@
                   </div>
                   <div class="line"></div>
                   <div>
-                      <button   (click)="login(UserLogin,password)" class="btn-login form-control">{{ "Btn-Login" | translate }}</button>
+                      <button (click)="onSubmit()" class="btn-login form-control hola">{{ "Btn-Login" | translate }}</button>
                   </div>
               </div>
 
-          </form>
+          <!-- </form> -->
       </div>
 
 <!-- MODAL FORGOT PASS
