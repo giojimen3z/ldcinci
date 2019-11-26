@@ -9,10 +9,11 @@ declare var $: any;
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
-})
 
+})
+ 
 export class SidenavComponent implements OnInit {
-  @Output() public Tipo: String;
+ public Tipo: String;
 
   type: any;
   varselecct: string;

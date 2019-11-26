@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import { ProjectsService } from 'src/app/Service/projects.service';
+import {  LanguageService } from 'src/app/Service/language.service';
 import { map } from 'rxjs/operators';
 
 export interface UserData {
@@ -32,11 +33,11 @@ declare var $: any;
 })
 export class ProjectsComponent implements OnInit {
 
-@Input() Tipo;
+ Tipo: String;
 
 proyectos: any;
 
-constructor(public translate: TranslateService,private projects: ProjectsService) {
+constructor(public translate: TranslateService,private projects: ProjectsService, private lang: LanguageService) {
 
   // Create 100 users
   const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
@@ -49,13 +50,6 @@ constructor(public translate: TranslateService,private projects: ProjectsService
 
 }
 
-// CHANGE  language
-// -------------------->
-language(tipo) {
-
-
-
-}
 
 
 displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
@@ -69,9 +63,10 @@ dataSource: MatTableDataSource<UserData>;
 ngOnInit() {
   this.dataSource.paginator = this.paginator;
   this.dataSource.sort = this.sort;
-
+  
+  this.lang.newType.subscribe(language => this.Tipo = language);
   console.log(this.Tipo)
-  if (this.Tipo === 'es') { this.translate.use('es'); }  else { this.translate.use('en'); }
+  // if (this.Tipo === 'es') { this.translate.use('es'); }  else { this.translate.use('en'); }
 
   this.projects.getProjects().subscribe(data => {
       this.proyectos = data;
