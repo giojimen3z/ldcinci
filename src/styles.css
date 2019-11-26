@@ -2,3 +2,27 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.msj-error-global{
+  margin-top: -60px;
+  background-color: #343434;
+  color: white;
+  border-radius: 10px;
+  width: 35%;
+  height: 100%;
+  border: 1px #ffc107 solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.msj-error-global > strong{
+  margin-left: 10px;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.div-not-show{
+  display: none;
+  height: 6%;
+}

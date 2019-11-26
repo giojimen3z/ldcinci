@@ -41,7 +41,7 @@
                   </div>
               </div>
 
-              <div class="w-100" style="margin-buttom:20px;">
+              <div class="w-100" style="margin-bottom:20px;">
                   <a href="#" class="text-white float-right" style="margin-top: -10px; margin-bottom: 25px;" data-toggle="modal" data-target="#myModal">{{ "Forgot_Pass" | translate }}</a>
               </div>
 
@@ -51,7 +51,7 @@
                   </div>
                   <div class="line"></div>
                   <div>
-                      <button (click)="onSubmit()" class="btn-login form-control hola">{{ "Btn-Login" | translate }}</button>
+                      <button (click)="login()" class="btn-login form-control hola">{{ "Btn-Login" | translate }}</button>
                   </div>
               </div>
 
@@ -60,8 +60,7 @@
 
 <!-- MODAL FORGOT PASS
   -------------------------->
-
-  <div class="modal" id="myModal">
+<div class="modal" id="myModal">
           <div class="modal-dialog">
               <div class="modal-content">
 
@@ -90,3 +89,10 @@
           </div>
       </div>
   </section>
+
+  <!-- MENSAJE DE ERROR -->
+<div class="div-not-show" id="msjLogin">
+    <div class="msj-error-global mx-auto">
+      {{ mensaje | translate}} <strong (click)="closeMSJ()">{{ "btn-msj-error" | translate}}</strong>
+    </div>
+</div>

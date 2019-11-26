@@ -1,8 +1,8 @@
 {
-
         "Title" : "Login",
         "Title_Acount" : "Kantar Operations Latam",
         "Btn-Login" : "Login",
+        "Update-info": "update information",
         "User-Login" : "User",
         "Pass-Login" : "Password",
         "Forgot_Pass" : "Forgot Your Password?",
@@ -81,5 +81,7 @@
         "IS_Tipo" : "Tipo de incidencia",
         "IS_Causal" : "Causal de incidencias",
         "IS_Pregunta" : "Pregunta",
-        "IS_Comentario" : "Comentarios"
+        "IS_Comentario" : "Comentarios",
+        "Welcome" : "Welcome!",
+        "btn-msj-error" : "Close"
 }

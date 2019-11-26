@@ -26,3 +26,69 @@ mat-icon{
   margin-right: 10px;
   color: #d0a727;
 }
+
+.add{
+  float: right;
+  cursor: pointer;
+}
+
+#newAdd {
+  display: none;
+}
+
+#newAdd > div.d-flex > div{
+margin: 0 10px;
+}
+
+#newAdd > div.d-flex > div:nth-child(1){
+  width: 25%;
+}
+
+#newAdd > div.d-flex > div:nth-child(2){
+  width: 25%;
+}
+
+#newAdd > div.d-flex > div:nth-child(3){
+  width: 15%;
+}
+
+#newAdd > div.d-flex > div:nth-child(5){
+  padding-top: 30px;
+}
+
+.newAddicional > div.d-flex > div{
+  margin: 0 10px;
+}
+  
+.newAddicional > div.d-flex > div:nth-child(1){
+  width: 25%;
+}
+  
+.newAddicional > div.d-flex > div:nth-child(2){
+  width: 25%;
+}
+  
+.newAddicional > div.d-flex > div:nth-child(3){
+  width: 15%;
+}
+  
+.newAddicional > div.d-flex > div:nth-child(5){
+  padding-top: 30px;
+}
+
+.facturado{
+  width: 25%;
+  padding-top: 10px;
+  margin-left: 15px;
+}
+
+.totalCost{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.totalCost > div{
+  margin:0 10px;
+}

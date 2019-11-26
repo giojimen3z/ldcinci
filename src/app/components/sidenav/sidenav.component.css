@@ -71,7 +71,78 @@ a:hover {
 
 .btn-menu {
   background: black !important;
-  color: white;
+  color: white;  
 }
 
+#update-user{
+    width: 40%;
+    color: black;
+    background-color: black;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
 
+#btn-close > mat-icon {
+  position: absolute;
+  top: 5;
+  right: 0;
+  cursor: pointer;
+}
+
+#update-user > div:nth-child(1){
+  width: 100%;
+  border-left: 3px #fff solid;
+  height: 5%;
+}
+
+#update-user > div:nth-child(2){
+  width: 100%;
+  padding-top: 50px;
+  border-left: 3px #fff solid;
+  height: 95%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.border-inputs{
+  background-color: black;
+  border: 0;
+  color: white;
+  border-block-end: 1px white solid
+}
+
+.width-inputs{
+  width: 80%;
+  margin-top: 15px;
+}
+
+#change-leng{
+    width: 40%;
+    color: black;
+    background-color: black;
+    height: 45%;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+#change-leng> div:nth-child(1){
+  width: 100%;
+  border-left: 3px #fff solid;
+  height: 5%;
+}
+
+#change-leng > div:nth-child(2){
+  width: 100%;
+  padding-top: 50px;
+  border-left: 3px #fff solid;
+  height: 95%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

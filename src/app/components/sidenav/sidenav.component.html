@@ -13,17 +13,17 @@
           </div>
       </div>
   </div>
-  <div class ="line-pro"></div>
+  <!-- <div class ="line-pro"></div> -->
 </header>
 
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
   <mat-toolbar color="primary" style="margin-top: 5px; font-size: 17px;">
-    <button mat-icon-button (click)="snav.toggle()" class="btn-menu"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button (click)="snav.toggle()" class="btn-menu" id="auxUpdate"><mat-icon>menu</mat-icon></button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-        <mat-nav-list>
+      <mat-nav-list>
           <mat-accordion>
             <!-- OPCIONES USUARIO -->
             <mat-expansion-panel>
@@ -34,19 +34,19 @@
                   </mat-panel-title>
                 </mat-expansion-panel-header>
                   <!-- INFORMACIÓN -->
-                  <a mat-list-item [routerLink]="['cost']">
+                  <a mat-list-item [routerLink]="" (click)="ActualizarInfo()">
                     <mat-icon class="icono">edit</mat-icon>
-                    Update Infor
+                    Update
                   </a>
                   <!-- EQUIPO -->
-                  <a mat-list-item [routerLink]="['register']">
+                  <a mat-list-item [routerLink]="['']">
                       <mat-icon class="icono">people_alt</mat-icon>
                       Team
                     </a>
                   <!-- CONFIGURACION -->
-                  <a mat-list-item [routerLink]="['']">
-                    <mat-icon class="icono">settings_applications</mat-icon>
-                    Confi
+                  <a mat-list-item [routerLink]="" (click)="idioma()">
+                    <mat-icon class="icono">vpn_lock</mat-icon>
+                    Language
                   </a>
               </mat-expansion-panel>
               <!-- OPCIONES PROYECTO -->
@@ -62,7 +62,7 @@
                     My Projects
                   </a>
                   <!-- CREAR PROYECTO -->
-                  <a mat-list-item [routerLink]="['ScriptIncidence']">
+                  <a mat-list-item [routerLink]="['']">
                     <mat-icon class="icono">library_add</mat-icon>
                     New Project
                   </a>
@@ -80,10 +80,87 @@
               </a>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+          <mat-sidenav-content>
+            <!-- ACTUALIZAR USUARIO -->
+            <div id="update-user">
+              <div id="btn-close">
+                <mat-icon (click)="closePanel()" class="icono">close</mat-icon>
+              </div>
+              <div>
+                Update Information
+              <br/>
+              <!-- USUARIO -->
+              <div class="width-inputs">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text border-inputs" id="basic-addon1"><mat-icon class="icono">account_box</mat-icon></span>
+                  </div>
+                  <input type="text" class="form-control border-inputs" [(ngModel)]="Nombre" >
+                </div>
+              </div>
+              <!-- APELLIDO -->
+              <div class="width-inputs">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text border-inputs" id="basic-addon1"><mat-icon class="icono">assignment_ind</mat-icon></span>
+                  </div>
+                  <input type="text" class="form-control border-inputs" [(ngModel)]="Apellido" >
+                </div>
+              </div>
+              <!-- CORREO -->
+              <div class="width-inputs">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text border-inputs" id="basic-addon1"><mat-icon class="icono">email</mat-icon></span>
+                  </div>
+                  <input type="text" class="form-control border-inputs" [(ngModel)]="Correo" >
+                </div>
+              </div>
+              <!-- CONTRASEÑA -->
+              <div class="width-inputs">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text border-inputs" id="basic-addon1"><mat-icon class="icono">enhanced_encryption</mat-icon></span>
+                  </div>
+                  <input type="password" class="form-control border-inputs" [(ngModel)]="Password" >
+                  <input type="text" style="display:none" [(ngModel)]="UserId" >
+                </div>
+              </div>
+              <button (click)="ActualizarInfoUser()" type="button" class="btn btn-outline-light" style="width: 50%; margin-top: 15px;">Guardar</button>
+            </div>
+          </div>
+          <!-- ACTUALIZAR USUARIO -->
+          <div id="change-leng">
+            <div id="btn-close">
+                <mat-icon (click)="closeIdioma()" class="icono">close</mat-icon>
+            </div>
+            <div>
+                LANGUAJE
+                <br/>
+                <div class="width-inputs">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text border-inputs" id="basic-addon1"><mat-icon class="icono">public</mat-icon></span>
+                    </div>
+                      <select class="form-control border-inputs" id="Prueba" >
+                        <option value="en" value="en">Ingles</option>
+                        <option value="es" value="es">Español</option>
+                      </select>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-outline-light" style="width: 50%; margin-top: 15px; " (click)="language()">Guardar</button>
+            </div>
+          </div>
+            <!------------------------>
+            <router-outlet></router-outlet>
+              <!-- MENSAJE DE ERROR -->
+            <div class="div-not-show" id="msjMenu">
+              <div class="msj-error-global mx-auto">
+                Done! <strong (click)="closeMSJ()">Close</strong>
+              </div>
+            </div>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+      </div>
 
-<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+      <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>

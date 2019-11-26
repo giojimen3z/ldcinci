@@ -1,8 +1,10 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
+import { ProjectsService } from 'src/app/Service/projects.service';
+import { map } from 'rxjs/operators';
 
 export interface UserData {
   id: string;
@@ -30,24 +32,29 @@ declare var $: any;
 })
 export class ProjectsComponent implements OnInit {
 
+@Input() Tipo;
+
+proyectos: any;
+
+constructor(public translate: TranslateService,private projects: ProjectsService) {
+
+  // Create 100 users
+  const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+
+  // Assign the data to the data source for the table to render
+  this.dataSource = new MatTableDataSource(users);
+
+  this.translate.addLangs(['en', 'es']);
+  this.translate.setDefaultLang('en');
+
+}
+
+// CHANGE  language
+// -------------------->
+language(tipo) {
 
 
-  @Input() Tipo:String;
 
-
-
-  // CHANGE  language
-//------->
-language(tipo:String) {
-
-
-
-  if (tipo == 'es'){
-    this.translate.use('es');
-  }else{
-
-    this.translate.use('en');
-  }
 }
 
 
@@ -57,22 +64,21 @@ dataSource: MatTableDataSource<UserData>;
 @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-constructor(public translate: TranslateService) {
 
-      // Create 100 users
-      const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
-      // Assign the data to the data source for the table to render
-      this.dataSource = new MatTableDataSource(users);
-
-      this.translate.addLangs(['en','es']);
-      this.translate.setDefaultLang('en');
-
-}
 
 ngOnInit() {
   this.dataSource.paginator = this.paginator;
   this.dataSource.sort = this.sort;
+
+  console.log(this.Tipo)
+  if (this.Tipo === 'es') { this.translate.use('es'); }  else { this.translate.use('en'); }
+
+  this.projects.getProjects().subscribe(data => {
+      this.proyectos = data;
+  })
+
+  console.log(this.proyectos)
+
 }
 applyFilter(filterValue: string) {
   this.dataSource.filter = filterValue.trim().toLowerCase();

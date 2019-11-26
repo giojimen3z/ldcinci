@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-import {MatButtonModule,MatInputModule,MatCardModule,} from '@angular/material';
+import { MatButtonModule, MatInputModule, MatCardModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 /* Translate */
@@ -36,6 +36,5 @@ export function HttpLoaderFactory(http: HttpClient){
       }
     }),
   ],
-
 })
 export class LoginModule { }

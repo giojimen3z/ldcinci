@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './../../Service/auth.service';
 
-
 declare var $: any;
 
 @Component({
@@ -15,25 +14,50 @@ export class LoginComponent  implements OnInit {
   //
   Email: string;
   password: string;
+  mensaje: string;
 
-  constructor(public translate: TranslateService, private router: Router, private userService: AuthService ) {
+  constructor(public translate: TranslateService, private router: Router,
+              private userService: AuthService ) {
 
     this.translate.addLangs(['en','es']);
     this.translate.setDefaultLang('en');
-    //this.userService.obtenerUsuario().subscribe((user)=>{console.log(user)})
+
   }
 
 ngOnInit(){
-
-  this.userService.obtenerUsuario().subscribe((user)=>{console.log(user)})
 }
+
+  login(){
+
+    const data = {
+      Email: this.Email,
+      Pass: this.password
+    }
+
+    this.userService.login(data).subscribe((response)=>{
+      if(typeof(response) === 'object'){
+        this.mensaje = "Forgot-Btn";
+        $("#msjLogin").toggle();
+      } else {
+        this.userService.setToken(response);
+        this.router.navigate(['sidenav'], { replaceUrl: true });
+      }
+
+    });
+
+
+  }
+
+  closeMSJ(){
+    $("#msjLogin").toggle();
+  }
 
 // CHANGE  language
 // ------->
 language(tipo: String) {
 
 
-  if (tipo == 'es'){
+  if (tipo === 'es'){
     this.translate.use('es');
   }else{
 

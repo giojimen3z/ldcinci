@@ -1,68 +1,158 @@
+
 <!-- CONTAINER
 ------------------>
 <mat-card class="container-cost mx-auto">
-    <mat-card-header>
-      <mat-card-title>
-        <h3>Cost</h3>
-      </mat-card-title>
-      <mat-card-subtitle>JobNumber - Nombre del proyecto</mat-card-subtitle>
-      <mat-icon class="icono-info">info</mat-icon>
-    </mat-card-header>
-    <hr/>
-    <mat-card-content>
-      <mat-accordion>
-          <!-- FECHA -->
-          <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <mat-icon class="icono">insert_invitation</mat-icon>
-                  Payment Frequency
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-
-                Hola
-
-            </mat-expansion-panel>
-          <!-- HORAS -->
-          <mat-expansion-panel>
+  <mat-card-header>
+    <mat-card-title>
+      <h3>{{ "NCost" | translate }}</h3>
+    </mat-card-title>
+    <mat-card-subtitle>JobNumber - Nombre del proyecto</mat-card-subtitle>
+    <mat-icon class="icono-info">info</mat-icon>    
+  </mat-card-header>
+  <hr/>
+  <mat-card-content>
+    <mat-accordion>
+        <!-- FECHA -->
+        <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                <mat-icon class="icono">monetization_on</mat-icon>
-                Hours
-              </mat-panel-title>
+                <mat-icon class="icono">insert_invitation</mat-icon>
+                {{ "Payment" | translate }}
+              </mat-panel-title>            
             </mat-expansion-panel-header>
+              
+              OJO LOS DATOS ACA SE DEBEN TRAER DE LA BASE DE DATOS
+  
+          </mat-expansion-panel>    
+        <!-- HORAS -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon class="icono">monetization_on</mat-icon>
+              {{ "Hours_cost" | translate }}
+            </mat-panel-title>                 
+          </mat-expansion-panel-header>
+            
+            <div class="w-100 d-flex justify-content-center">
+              <!------- HORAS ------->
+              <div class="multi d-flex">
+                  <!-- HORAS SCRIPT -->
+                  <div class="mr-1">
+                      <label for="Hora_Script"><strong>Script</strong><span class="field-O">*</span></label>
+                      <input type="number" class="form-control monto" [(ngModel)]="Hora_Script" id="Hora_Script" placeholder='0'>                        
+                  </div>
+                  <!-- HORAS DP -->
+                  <div class="mr-1">
+                      <label for="Hora_DP"><strong>DP</strong><span class="field-O">*</span></label>
+                      <input type="number" class="form-control monto" [(ngModel)]="Hora_DP" id="Hora_DP" placeholder='0'>                     
+                  </div>
+                  <!-- HORAS CODIFICACION -->
+                  <div>
+                      <label for="Hora_Code"><strong>Code</strong><span class="field-O">*</span></label>
+                      <input type="number" step="0" class="form-control monto" [(ngModel)]="Hora_Code" id="Hora_Code" placeholder='0'>                        
+                  </div>
+              </div>
+          </div>
 
-              <a mat-list-item [routerLink]="['']">
-                <mat-icon class="icono">edit</mat-icon>
-                Update Infor
-              </a>
+        </mat-expansion-panel>     
+        <!-- HORAS -->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="icono">add_to_photos</mat-icon>
+                {{ "Adicional" | translate }}
+              </mat-panel-title>                 
+            </mat-expansion-panel-header>
+            <!-- CONTENIDO -->
+            
+            <mat-icon class="icono add" (click)="addAdicional()">exposure_plus_1</mat-icon>
+            <br>
+            <div id="newAdd" class="w-100">
+              <div class="d-flex">
+                <!-- TIPO ADICIONAL -->
+                <div>
+                    <label for="type"><strong>{{ "Adittionaltype" | translate }}</strong></label>
+                    <input type="text" class="form-control" [(ngModel)]="type" id="type" placeholder='{{ "Adittionaltype" | translate }}'> 
+                </div>
+                <!-- SOLCITADO POR -->
+                <div>                            
+                    <label for="Solicitud"><strong>{{ "Solitedby" | translate }}</strong></label>
+                    <select id="Solicitud" [(ngModel)]="Solicitud" class="custom-select">                                  
+                        <option selected>{{ "Select" | translate }}</option>
+                    </select>
+                </div> 
+                <!-- COSTO -->
+                <div>
+                    <label for="Costo_Adicional"><strong>{{ "NC_HV" | translate }}</strong></label>
+                    <input type="number" class="form-control" [(ngModel)]="Costo_Adicional" id="Costo_Adicional" placeholder="0" >            
+                </div>
+                <!-- MES DE ACICIONAL -->                                
+                <div>
+                    <label for="Month_Adittional"><strong>{{ "Mes_Factura" | translate }}</strong></label>
+                    <input type="date" [(ngModel)]="Month_Adittional" id="Month_Adittional" placeholder="Billing month" class="form-control" min="2019-01-01">
+                </div>
+                <!-- BTN CREAR ADICIONAL -->
+                <div>
+                    <button type="button" (click)="guardarAdicional()" class="btn btn-outline-dark mx-auto">{{ "Submit" | translate }}</button>                      
+                </div>                           
+              </div>
+            </div>
+            <hr>
+            <!-- ADICIONALES -->
+            <div>
+              <mat-expansion-panel *ngFor="let adicional of Adicionales; let i = index">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <mat-icon class="icono">monetization_on</mat-icon>
+                      {{adicional.type}}
+                    </mat-panel-title>                 
+                  </mat-expansion-panel-header>
 
-          </mat-expansion-panel>
-          <!-- HORAS -->
-          <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <mat-icon class="icono">monetization_on</mat-icon>
-                  Prueba
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-
-              <mat-expansion-panel>
-                  <mat-expansion-panel-header>
-                      <mat-panel-title>
-                        <mat-icon class="icono">monetization_on</mat-icon>
-                        Prueba Otra
-                      </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    sdfsdfsdf
-              </mat-expansion-panel>
-
-            </mat-expansion-panel>
-          <!-- shopping_cart     -->
-          <!-- payment -->
-          <!-- remove_shopping_cart -->
-          <!-- exposure_plus_1 -->
-          <!--  -->
-        </mat-accordion>
-    </mat-card-content>
-  </mat-card>
+                  <div class="newAddicional w-100">
+                    <div class="d-flex">
+                      <!-- TIPO ADICIONAL -->
+                      <div>
+                          <label for="type"><strong>{{ "Adittionaltype" | translate }}</strong></label>
+                          <input type="text" class="form-control" value="{{adicional.type}}"> 
+                      </div>
+                      <!-- SOLCITADO POR -->
+                      <div>                            
+                          <label for="Solicitud"><strong>{{ "Solitedby" | translate }}</strong></label>
+                          <select class="custom-select" value="{{adicional.Solicitud}}">                                  
+                              <option selected>{{ "Select" | translate }}</option>
+                          </select>
+                      </div> 
+                      <!-- COSTO -->
+                      <div>
+                          <label for="Costo_Adicional"><strong>{{ "NC_HV" | translate }}</strong></label>
+                          <input type="number" class="form-control"  value="{{adicional.Costo_Adicional}}" >            
+                      </div>
+                      <!-- MES DE ACICIONAL -->                                
+                      <div>
+                          <label for="Month_Adittional"><strong>{{ "Mes_Factura" | translate }}</strong></label>
+                          <input type="date" class="form-control" value="{{adicional.Month_Adittional}}">
+                      </div>
+                      <!-- BTN CREAR ADICIONAL -->
+                      <div>
+                         <mat-icon class="icono" style="cursor:pointer" (click)="DeleteAdd(i)">delete_forever</mat-icon>                    
+                      </div>                           
+                    </div>
+                 </div>
+              </mat-expansion-panel> 
+            </div>            
+          </mat-expansion-panel> 
+      </mat-accordion>  
+      <!--------------------------->
+      <div class="facturado">                            
+          <label for="facturado"><strong>{{ "Facturado" | translate }}</strong></label>
+          <select class="custom-select" [(ngModel)]="Facturado">                                  
+              <option value="1">{{ "Yes" | translate }}</option>
+              <option value="0">No</option>
+          </select>
+      </div>
+      <div class="totalCost">                            
+          <div><label for="facturado"><strong>{{ "CostTotal" | translate }}</strong></label></div>
+          <div><input type="number" class="form-control" ></div>
+      </div>
+  </mat-card-content>
+</mat-card>

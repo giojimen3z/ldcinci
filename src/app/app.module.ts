@@ -22,7 +22,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 import { MatExpansionModule } from '@angular/material/expansion';
-import { from } from 'rxjs';
 
 
 /* Jquery */
@@ -44,10 +43,10 @@ declare var $: any;
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatPaginatorModule,
     BrowserAnimationsModule,
     MatExpansionModule,
     HttpClientModule,
+
     TranslateModule.forRoot({
 
       loader: {
