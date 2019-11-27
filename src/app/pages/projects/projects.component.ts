@@ -33,8 +33,13 @@ declare var $: any;
 })
 export class ProjectsComponent implements OnInit {
 
+<<<<<<< HEAD
+Tipo: String;
+newLang: String;
+=======
  Tipo: String;
 
+>>>>>>> b76ed4ecb95ee1f0b66642f2e677523825f4fb04
 proyectos: any;
 
 constructor(public translate: TranslateService,private projects: ProjectsService, private lang: LanguageService) {
@@ -63,15 +68,24 @@ dataSource: MatTableDataSource<UserData>;
 ngOnInit() {
   this.dataSource.paginator = this.paginator;
   this.dataSource.sort = this.sort;
+<<<<<<< HEAD
+
+
+   this.lang.newType.subscribe(language => this.Tipo = language, data =>  this.newLang = this.Tipo);
+
+  console.log(this.newLang)
+  if (this.newLang === 'es') { this.translate.use('es'); }  else { this.translate.use('en'); }
+=======
   
   this.lang.newType.subscribe(language => this.Tipo = language);
   console.log(this.Tipo)
   // if (this.Tipo === 'es') { this.translate.use('es'); }  else { this.translate.use('en'); }
+>>>>>>> b76ed4ecb95ee1f0b66642f2e677523825f4fb04
 
   this.projects.getProjects().subscribe(data => {
       this.proyectos = data;
   })
-
+  console.log(this.Tipo)
   console.log(this.proyectos)
 
 }

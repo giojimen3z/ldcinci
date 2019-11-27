@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef, Input, Output } from '@angular/co
 import { MediaMatcher } from '@angular/cdk/layout';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './../../Service/auth.service';
+import { LanguageService } from 'src/app/Service/language.service';
 
 declare var $: any;
 
@@ -9,11 +10,21 @@ declare var $: any;
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
+<<<<<<< HEAD
+
+})
+=======
+>>>>>>> b76ed4ecb95ee1f0b66642f2e677523825f4fb04
 
 })
  
 export class SidenavComponent implements OnInit {
+<<<<<<< HEAD
+
+  Tipo: String;
+=======
  public Tipo: String;
+>>>>>>> b76ed4ecb95ee1f0b66642f2e677523825f4fb04
 
   type: any;
   varselecct: string;
@@ -30,7 +41,7 @@ export class SidenavComponent implements OnInit {
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public translate: TranslateService,
-              private UserService: AuthService) {
+              private UserService: AuthService, private lang: LanguageService) {
 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -45,11 +56,15 @@ export class SidenavComponent implements OnInit {
       this.Correo = user['users']['Email'];
       this.Password = "Password";
       this.UserId = user['users']['id'];
+
     });
 
 
   }
+  ngOnInit() {
 
+    this.lang.newType.subscribe(language => this.Tipo = language);
+  }
   // ACTUALIZAR IDIOMA
   language() {
 
@@ -57,12 +72,12 @@ export class SidenavComponent implements OnInit {
 
     if (this.varselecct.toString() === 'es') {
       this.Tipo = 'es';
-      this.translate.use('es');
-      console.log(this.Tipo);
+
+      this.lang.changeLanguage(this.Tipo);
     }  else {
       this.Tipo = 'en';
-      this.translate.use('en');
-      console.log(this.Tipo);
+
+      this.lang.changeLanguage(this.Tipo);
     }
 
   }
@@ -121,7 +136,6 @@ export class SidenavComponent implements OnInit {
 
   shouldRun = true;
 
-  ngOnInit() {
-  }
+
 
 }

@@ -1,10 +1,11 @@
 
 <!-- CONTAINER
 ------------------>
+<input type="text" value="{{Tipo}}" id="Prueba" (ngModelChange)="changeLanguage($event)">
 <mat-card class="container-cost mx-auto">
   <mat-card-header>
     <mat-card-title>
-      <h3>{{"remember_pass"| translate}}</h3>
+      <h3>{{"remember_pass"| translate}} </h3>
     </mat-card-title>
     <div class="col-sm-3 my-1 search-input">
         <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
