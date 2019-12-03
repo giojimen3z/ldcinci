@@ -10,21 +10,14 @@ declare var $: any;
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
-<<<<<<< HEAD
 
 })
-=======
->>>>>>> b76ed4ecb95ee1f0b66642f2e677523825f4fb04
 
-})
- 
+
+
 export class SidenavComponent implements OnInit {
-<<<<<<< HEAD
 
   Tipo: String;
-=======
- public Tipo: String;
->>>>>>> b76ed4ecb95ee1f0b66642f2e677523825f4fb04
 
   type: any;
   varselecct: string;

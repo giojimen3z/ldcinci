@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UrlService } from '../Service/url.service';
 import { AuthService } from './auth.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
+
 
   urlApi;
   token = '';
@@ -21,7 +23,7 @@ export class ProjectsService {
   getProjects() {
 
     const headersHttp: HttpHeaders  = new HttpHeaders({'content-type': 'appication/json', 'Authorization': this.token})
-    return this.http.get(this.urlApi + 'user/project', {headers: headersHttp});
+    return this.http.get(this.urlApi + 'user/project', {headers: headersHttp})
 
   }
 
